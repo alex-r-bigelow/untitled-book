@@ -1,0 +1,36 @@
+{
+  "name": "god-would-cease-to-be-god",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build:content": "./buildContent.sh",
+    "build:app": "rollup -c",
+    "serve": "serve dist"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/d3": "^7.4.3",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "rollup": "^4.10.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-string": "^3.0.0",
+    "serve": "^14.2.1",
+    "showdown": "^2.1.0",
+    "staticrypt": "^3.4.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "d3": "^7.8.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

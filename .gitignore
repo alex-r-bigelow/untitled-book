@@ -1,0 +1,7 @@
+node_modules
+content/unpublished
+temp
+encrypted
+.env
+.staticrypt.json
+app/chapters
