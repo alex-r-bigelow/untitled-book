@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Secret Unpublished Content</title>
+  </head>
+  <body>
+    <h1>Secret Unpublished Content</h1>
+    <p>
+      Congratulations; you found the secret content page! If you're here, you
+      should have gotten a password from me to actually view the draft /
+      unpublished stuff, as well as some context for what I'd like feedback on.
+      Sorry about the mess!
+    </p>
+    <ul>

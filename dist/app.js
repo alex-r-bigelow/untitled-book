@@ -7935,9 +7935,9 @@
     };
   }
 
-  var Chapter1_TestPublic = "<h1 id=\"thisissomepublictestchapter1\">This is some public test chapter 1</h1>\n<p>Some body text</p>";
+  var Chapter1_TestPublic = "<h2 id=\"testchapter1\">Test chapter 1</h2>\n<p>Test content for chapter 1</p>";
 
-  var Chapter2_TestPublic = "<h1 id=\"thisissomepublictestchapter2\">This is some public test chapter 2</h1>\n<p>Some body text</p>";
+  var Chapter2_TestPublic = "<h2 id=\"testchapter2\">Test chapter 2</h2>\n<p>Text for chapter 2</p>";
 
   var chapters = {
       Chapter1_TestPublic,
@@ -7945,8 +7945,17 @@
   };
 
   function App() {
-      console.log(chapters);
-      return reactExports.createElement("h1", null, "Test app");
+      const [currentChapter, setCurrentChapter] = reactExports.useState(null);
+      return (reactExports.createElement(reactExports.Fragment, null,
+          reactExports.createElement("h1", null, "Untitled Book"),
+          reactExports.createElement("p", null,
+              "This is a silly work-in-progress book / book series; just trying to dump all the useless lore leftover from my past Mormon life ",
+              reactExports.createElement("b", null, "somewhere"),
+              ' ',
+              "for now. Nothing to see here yet..."),
+          reactExports.createElement("ul", null, Object.keys(chapters).map((chapter) => (reactExports.createElement("li", { key: chapter },
+              reactExports.createElement("a", { onClick: () => setCurrentChapter(chapter), role: "button", href: "#" }, chapter))))),
+          reactExports.createElement("div", null, currentChapter ? (reactExports.createElement("div", { dangerouslySetInnerHTML: { __html: chapters[currentChapter] } })) : ('No chapter selected.'))));
   }
 
   globalThis.onload = () => {

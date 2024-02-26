@@ -1,3 +1,3 @@
-# This is some public test chapter 2
+## Test chapter 2
 
-Some body text
+Text for chapter 2

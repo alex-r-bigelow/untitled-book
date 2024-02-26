@@ -23,6 +23,7 @@ mkdir -p temp/public
 touch temp/public/index.ts
 mkdir -p temp/unpublished
 mkdir -p dist
+cp rawFragments/unpublishedTop.txt dist/unpublished.html
 
 echo "Converting public chapters..."
 publicChapters=()
@@ -32,7 +33,8 @@ do
   then
     chapterMarkdownFile=$(basename $file)
     chapter="${chapterMarkdownFile%.*}"
-    ./node_modules/.bin/showdown makehtml -i $file -o temp/public/$chapter.html
+    echo "Chapter: ${chapter}"
+    ./node_modules/.bin/showdown makehtml -c tables -i $file -o temp/public/$chapter.html
     echo "import ${chapter} from './${chapter}.html';" >> temp/public/index.ts
     publicChapters+=( $chapter )
   fi
@@ -52,10 +54,13 @@ do
   then
     chapterMarkdownFile=$(basename $file)
     chapter="${chapterMarkdownFile%.*}"
-    ./node_modules/.bin/showdown makehtml -i $file -o temp/unpublished/$chapter.html
+    echo "Chapter: ${chapter}"
+    ./node_modules/.bin/showdown makehtml -c tables -i $file -o temp/unpublished/$chapter.html
+    echo "      <li><a href=\"unpublished/${chapter}.html\">${chapter}</a></li>" >> dist/unpublished.html
   fi
 done
 ./node_modules/.bin/staticrypt -r temp/unpublished
+cat rawFragments/unpublishedBottom.txt >> dist/unpublished.html
 
 echo "Cleaning up..."
 mv encrypted/unpublished dist/unpublished

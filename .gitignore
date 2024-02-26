@@ -1,7 +1,9 @@
 node_modules
 content/unpublished
+content/.obsidian
 temp
 encrypted
 .env
 .staticrypt.json
 app/chapters
+.DS_Store
